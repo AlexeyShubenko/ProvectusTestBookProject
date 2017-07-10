@@ -1,0 +1,17 @@
+.error{
+    color:red;
+}
+.existed{
+    color:blueviolet;
+}
+.addInf{
+    color:deeppink;
+}
+.appForm{
+    margin-left: 15%;
+    margin-top:2%;
+}
+.appheader{
+    color: orange;
+    text-decoration: underline;
+}
