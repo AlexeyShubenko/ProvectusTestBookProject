@@ -43,10 +43,9 @@ public class MainController {
         return books;
     }
 
-    @RequestMapping(value = "/showAllBooksByParameter",method = RequestMethod.GET)
-    public List<BookDto> getAllBooksByParameter(@RequestParam("parameter") String parameter,
-                                     @RequestParam("searchBy") String searchBy){
-        List<BookDto> books = bookService.getAllBooksByParameter(parameter,searchBy);
+    @RequestMapping(value = "/showAllBooksByParameter",method = RequestMethod.POST)
+    public List<BookDto> getAllBooksByParameter(@RequestBody BookSearch bookSearch){
+        List<BookDto> books = bookService.getAllBooksByParameter(bookSearch.getParameter(),bookSearch.getSearchBy());
         return books;
     }
 

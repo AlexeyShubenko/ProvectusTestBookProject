@@ -140,13 +140,14 @@
                 clearPreviousInformation("booksByAuthor");
                 var authorName = $("select#selectFindByAuthorName option:selected").text();
                 console.log(authorName);
-                outData = {parameter: authorName, searchBy: "byAuthorName"};
+                var outData = {};
+                outData["parameter"] = authorName;
+                outData["searchBy"] = "byAuthorName";
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: 'showAllBooksByParameter',
                     contentType: 'application/json',
-                    data: outData,
-                    dataType: "json",
+                    data: JSON.stringify(outData),
                     success: function (data) {
                         for (var i = 0; i < data.length; i++) {
                             $("div#booksByAuthor").append($("<div>" + data[i].title + "</div>"));
@@ -159,13 +160,14 @@
                 clearPreviousInformation("booksByGenre");
                 var genreName = $("select#selectFindBooksByGenreName option:selected").text();
                 console.log(genreName);
-                outData = {parameter: genreName, searchBy: "byGenreName"};
+                var outData =  {};
+                outData["parameter"] = genreName;
+                outData["searchBy"] = "byGenreName";
                 $.ajax({
-                    type: 'GET',
+                    type: 'POST',
                     url: 'showAllBooksByParameter',
                     contentType: 'application/json',
-                    dataType: "json",
-                    data: outData,
+                    data: JSON.stringify(outData),
                     success: function (data) {
                         for (var i = 0; i < data.length; i++) {
                             $("div#booksByGenre").append($("<div>" + data[i].title + "</div>"));
@@ -177,7 +179,6 @@
             function clearPreviousInformation(elementId) {
                 document.getElementById(elementId).innerHTML = "";
             }
-
         });
 
     </script>
@@ -231,7 +232,6 @@
         <select id="selectFindByAuthorName"></select>
     </div>
     <div id="booksByAuthor">
-
     </div>
 </div>
 
