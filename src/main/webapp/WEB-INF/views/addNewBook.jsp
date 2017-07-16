@@ -42,6 +42,14 @@
                 }
             });
         });
+
+//        function logOut() {
+//            $.ajax({
+//                url:'logout',
+//                type: 'GET'
+//            });
+//        }
+
     </script>
 
 </head>
@@ -142,7 +150,12 @@
 
 </div>
 
-
+<%--<div>--%>
+    <%--<button type="button" onclick="logOut()">Log out from admin page!</button>--%>
+<%--</div>--%>
+<div>
+    <a href="${spring:mvcUrl('logout').build()}">Log out from admin page!</a>
+</div>
 
 </body>
 </html>

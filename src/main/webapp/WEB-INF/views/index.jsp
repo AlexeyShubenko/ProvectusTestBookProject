@@ -3,7 +3,7 @@
 <html>
 <body>
 
-<a href="${spring:mvcUrl('addNewBook').build()}">Add new Book</a>
+<a href="${spring:mvcUrl('login').build()}">Add new Book</a>
 <a href="${spring:mvcUrl('showAllBooks').build()}">Show all books</a>
 
 </body>

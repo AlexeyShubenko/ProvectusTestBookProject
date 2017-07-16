@@ -19,9 +19,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by Alexey on 27.06.2017.
@@ -40,8 +42,11 @@ public class AddBookController {
         this.genreService = genreService;
     }
 
-    @RequestMapping(value = "/addnewbook",method = RequestMethod.GET,name = "addNewBook")
-    public String addBook(Model model){
+    @RequestMapping(value = "/addnewbook",method = RequestMethod.GET)
+    public String addBook(Model model, HttpSession session){
+        if(Objects.isNull(session.getAttribute("admin"))){
+            return "redirect:/";
+        }
         if(!model.containsAttribute("newBook")){
             model.addAttribute("newBook",new BookDto());
         }
