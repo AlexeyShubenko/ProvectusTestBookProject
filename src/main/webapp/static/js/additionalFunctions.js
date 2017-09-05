@@ -5,3 +5,25 @@
 function clearPreviousInformation(elementId) {
     document.getElementById(elementId).innerHTML = "";
 }
+
+function hideAppFormInFirstTime() {
+    $("div#bookOrder").hide();
+}
+
+//toggle detail book information
+
+function showHideBookDetails() {
+    $("div#info").toggle();
+}
+//toggle application form
+function showHideApplicationForm() {
+    $("div#bookOrder").toggle();
+}
+
+
+// $("div#details").click(function () {
+//
+// });
+// $("input#showForm").click(function () {
+//     $("div#bookOrder").toggle();
+// });
